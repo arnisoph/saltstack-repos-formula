@@ -10,7 +10,19 @@ aptpref_{{ k }}:
     - mode: 644
     - user: root
     - group: root
-    - contents_pillar: apt:preferences:{{ k }}:contents
+    - contents_pillar: repos:lookup:preferences:{{ k }}:contents
+    - order: 1000
+{% endfor %}
+
+{% for k, v in datamap.configs|default({})|dictsort %}
+aptconf_{{ k }}:
+  file:
+    - managed
+    - name: {{ datamap.conf_dir|default('/etc/apt/apt.conf.d') }}/{{ k }}
+    - mode: 644
+    - user: root
+    - group: root
+    - contents_pillar: repos:lookup:configs:{{ k }}:contents
     - order: 1000
 {% endfor %}
 
