@@ -52,5 +52,11 @@ aptrepo_{{ r.name|default(id) }}:
   {% if 'keyuri' in r %}
     - key_url: {{ r.keyuri }}
   {% endif %}
+  {% if 'keyid' in r %}
+    - keyid: {{ r.keyid }}
+  {% endif %}
+  {% if 'keyserver' in r %}
+    - keyserver: {{ r.keyserver }}
+  {% endif %}
     - order: 2000
 {% endfor %}
