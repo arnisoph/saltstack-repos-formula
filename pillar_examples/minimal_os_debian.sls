@@ -24,23 +24,6 @@ repos:
           - non-free
           - contrib
           - main
-      os_src_ftp:
-        ensure: absent
-        debtype: deb-src
-        url: http://ftp.debian.org:80/debian/
-        comps:
-          - non-free
-          - contrib
-          - main
-      security_src_ftp:
-        ensure: absent
-        debtype: deb-src
-        url: http://security.debian.org/
-        dist: wheezy/updates
-        comps:
-          - non-free
-          - contrib
-          - main
     configs:
       999custom:
         contents: |
