@@ -49,8 +49,8 @@ aptrepo_{{ r.name|default(id) }}:
   {% if not r.globalfile|default(False) %}
     - file: {{ datamap.sources_dir|default('/etc/apt/sources.list.d') }}/{{ r.name|default(id) }}.list
   {% endif %}
-  {% if 'keyuri' in r %}
-    - key_url: {{ r.keyuri }}
+  {% if 'keyuri' in r or 'keyurl' in r %}
+    - key_url: {{ r.keyuri|default(r.keyurl) }}
   {% endif %}
   {% if 'keyid' in r %}
     - keyid: {{ r.keyid }}
