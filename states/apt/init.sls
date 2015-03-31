@@ -1,6 +1,6 @@
 #!jinja|yaml
 
-{% set datamap = salt['formhelper.get_defaults']('repos', saltenv, ['yaml'])['yaml'] %}
+{% set datamap = salt['formhelper.defaults']('repos', saltenv) %}
 
 {% for k, v in datamap.preferences|default({})|dictsort %}
 aptpref_{{ k }}:
