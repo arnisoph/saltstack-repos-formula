@@ -41,6 +41,14 @@ aptpkgs:
     - order: 1500
 {% endif %}
 
+{% if datamap.purgepkgs|length > 0 %}
+aptpurgepkgs:
+  pkg:
+    - purged
+    - pkgs: {{ datamap.purgepkgs }}
+    - order: 1500
+{% endif %}
+
 {% for id, r in datamap.repos|default({})|dictsort %}
 aptrepo_{{ r.name|default(id) }}:
   pkgrepo:
