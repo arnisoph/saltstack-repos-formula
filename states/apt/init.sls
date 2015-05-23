@@ -38,7 +38,7 @@ aptpkgs:
   pkg:
     - installed
     - pkgs: {{ datamap.pkgs }}
-    - order: 1500
+    - order: 2500
 {% endif %}
 
 {% if datamap.purgepkgs|length > 0 %}
