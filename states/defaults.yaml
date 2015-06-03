@@ -1,6 +1,7 @@
 kernel:
   Linux:
     pkgs: []
+    purgepkgs: []
 os_family:
   Debian:
     sls_include:
