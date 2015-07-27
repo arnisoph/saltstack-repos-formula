@@ -1,0 +1,33 @@
+---
+defaults:
+  domain: repos.local.arnoldbechtoldt.com
+  base_box: DEV_CentOS_70_salt_arbe_git-virtualbox-v0.4-29-g25c2bb4.box
+  base_box_basedir: ../../../vagrant-devenv/shared/boxes
+  osfam: rhel
+  synced_folders:
+    # Common folders
+    - src: assets/scripts/provision
+      dst: /vagrant/scripts
+    - src: ../shared/misc
+      dst: /vagrant/shared/misc
+
+    # Salt related folders
+    - src: ../shared/salt/devenv
+      dst: /vagrant/shared/salt/devenv
+    #- src: ../../github/salt
+    #  dst: /vagrant/src/salt
+    - src: ../../../salt-modules/_modules
+      dst: /vagrant/salt/_modules
+    - src: ../../../salt-modules/_states
+      dst: /vagrant/salt/_states
+  provision:
+    - name: basic
+    - name: saltstack_install_bootstrap
+    - name: saltstack_formulas
+      formulas:
+        - name: repos
+          base_dir: ../..
+    - name: saltstack_config
+    - name: saltstack_services
+nodes:
+  client1: {}

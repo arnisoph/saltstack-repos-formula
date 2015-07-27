@@ -65,8 +65,6 @@ TODO
 * table/ matrix: os/salt compatibility (dedicated file)
 * add list of available states
 * add tests
-* provider interface (that is os agnostic)
-* move basic pkg mgmt to tools formula
 
 
 Authors

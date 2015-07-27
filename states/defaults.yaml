@@ -1,13 +1,11 @@
 kernel:
   Linux:
-    pkgs: []
-    purgepkgs: []
+    pkgs: {}
 os_family:
   Debian:
-    sls_include:
-      - repos.apt
     pkgs:
-      - apt-transport-https
-  RedHat:
-    sls_include:
-      - repos.yum
+      apthttps:
+        ensure: removed
+        pkgs:
+          - apt-transport-https
+  RedHat: {}
