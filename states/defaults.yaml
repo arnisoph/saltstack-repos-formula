@@ -5,7 +5,7 @@ os_family:
   Debian:
     pkgs:
       apthttps:
-        ensure: removed
+        ensure: installed
         pkgs:
           - apt-transport-https
   RedHat: {}
