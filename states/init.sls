@@ -47,7 +47,7 @@ def run():
 
     # Repositories
     if os_family_grain == 'Debian':
-        for repo, data in datamap.get('repos', {0}).items():
+        for repo, data in datamap.get('repos', {}).items():
             attrs = [
                     {'order': 2000},
                     ]
