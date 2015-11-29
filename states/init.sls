@@ -72,7 +72,7 @@ def run():
             state_id = 'repo_{0}'.format(data.get('name', repo))
             config[state_id] = _gen_state('pkgrepo', data.get('ensure', 'managed'), attrs)
     elif os_family_grain == 'RedHat':
-        for repo, data in datamap.get('repos', {0}).items():
+        for repo, data in datamap.get('repos', {}).items():
             attrs = [
                     {'humanname': repo},
                     {'order': 2000},
